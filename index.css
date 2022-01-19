@@ -55,7 +55,7 @@ body {
 .header__nav-wrapper__logo {
   width: 14rem;
   height: 5rem;
-
+  transition: all cubic-bezier(0, 0.13, 1, 1.6) 0.55s;
   object-fit: contain;
 }
 .header__nav-links {
@@ -63,7 +63,7 @@ body {
 }
 
 .header__nav-links__li {
-  margin-right: 2rem;
+  margin-right: 4rem;
   list-style-type: none;
   font-size: 1.5rem;
 }
@@ -106,6 +106,10 @@ h3 {
 }
 .header__title-primary {
   padding: 0.2rem;
+}
+.header__nav-links__li-href {
+  cursor: pointer;
+  transition: all cubic-bezier(0, 0.13, 1, 1.6) 0.55s;
 }
 
 .highlight {
