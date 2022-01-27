@@ -4,7 +4,9 @@ const nav = document.querySelector(".header__nav");
 const handleHover = function (e) {
   if (e.target.classList.contains("header__nav-links__li-href")) {
     const navLinks = e.target.closest(".header__nav");
+
     const sibilings = navLinks.querySelectorAll(".header__nav-links__li-href");
+
     sibilings.forEach((navLink) => {
       if (e.target !== navLink) navLink.style.opacity = this;
     });
@@ -13,6 +15,8 @@ const handleHover = function (e) {
   }
 };
 
+//add mouseOver and mouseout listeners
 nav.addEventListener("mouseover", handleHover.bind(0.7));
 
 nav.addEventListener("mouseout", handleHover.bind(1));
+
