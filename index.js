@@ -1,6 +1,7 @@
 const nav = document.querySelector(".header__nav");
 // const navLinks = document.querySelectorAll(".header__nav-links__li-href");
 
+//resuable function
 const handleHover = function (e) {
   if (e.target.classList.contains("header__nav-links__li-href")) {
     const navLinks = e.target.closest(".header__nav");
@@ -19,4 +20,3 @@ const handleHover = function (e) {
 nav.addEventListener("mouseover", handleHover.bind(0.7));
 
 nav.addEventListener("mouseout", handleHover.bind(1));
-
