@@ -29,6 +29,8 @@ body {
   font-family: "Readex Pro", sans-serif;
   width: 100vw;
   height: 100vh;
+  background-color: rgb(245, 243, 243);
+  overflow-x: hidden;
 }
 
 .header {
@@ -148,6 +150,7 @@ h3 {
   font-size: 4rem;
   line-height: 1.2;
   font-weight: 500;
+  max-width: 60%;
 }
 
 .features {
@@ -194,5 +197,85 @@ h3 {
 
 .feature__desc {
   line-height: 1.8;
+  color: gray;
+}
+
+.operations__tab-container {
+  display: flex;
+  justify-content: center;
+}
+
+.btn {
+  padding: 1.5rem 4.5rem;
+  border-radius: 25px;
+  border: none;
+  cursor: pointer;
+  background-color: var(--color-primary);
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.btn__count {
+  font-weight: 600;
+  margin-right: 0.5rem;
+}
+
+.operations {
+  background-color: white;
+  margin: 1rem 4rem;
+}
+.operations__tab {
+  margin-right: 2rem;
+  transform: translateY(-40%);
+}
+.operations__tab--active {
+  transform: translateY(-60%);
+}
+
+.operations__tab--1 {
+  background-color: var(--color-secondary);
+}
+.operations__tab--2 {
+  background-color: var(--color-tertiary);
+}
+.operations__tab--3 {
+  background-color: var(--color-primary);
+}
+
+.operations__content {
+  display: none;
+}
+.operations__content--active {
+  display: block;
+  display: grid;
+  padding: 2rem 4rem;
+  grid-template-columns: 8rem 1fr;
+  gap: 1rem;
+}
+
+.operations__icon {
+  background-color: var(--color-secondary-opacity);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  width: 5rem;
+  height: 5rem;
+}
+.operations__icon svg {
+  width: 3rem;
+  fill: var(--color-secondary);
+}
+.operations__header {
+  font-size: 3rem;
+  align-self: center;
+}
+
+.operations__desc {
+  width: 80%;
+  margin-top: 2rem;
+  font-size: 1.8rem;
+  grid-column: 2;
+  line-height: 1.5;
   color: gray;
 }
