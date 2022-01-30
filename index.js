@@ -1,17 +1,17 @@
-const nav = document.querySelector(".header__nav");
+const nav = document.querySelector(".nav");
 // const navLinks = document.querySelectorAll(".header__nav-links__li-href");
 
 //resuable function
 const handleHover = function (e) {
-  if (e.target.classList.contains("header__nav-links__li-href")) {
-    const navLinks = e.target.closest(".header__nav");
+  if (e.target.classList.contains("nav__link")) {
+    const navLinks = e.target.closest(".nav");
 
-    const sibilings = navLinks.querySelectorAll(".header__nav-links__li-href");
+    const sibilings = navLinks.querySelectorAll(".nav__link");
 
     sibilings.forEach((navLink) => {
       if (e.target !== navLink) navLink.style.opacity = this;
     });
-    document.querySelector(".header__nav-wrapper__logo").style.opacity = this;
+    document.querySelector(".nav__logo").style.opacity = this;
     e.target.style.opacity = 1;
   }
 };

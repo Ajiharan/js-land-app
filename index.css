@@ -38,7 +38,7 @@ body {
   flex-direction: column;
 }
 
-.header__nav {
+.nav {
   padding: 1rem 8rem;
   height: 8rem;
   background-color: rgb(241, 239, 239);
@@ -47,34 +47,34 @@ body {
   align-items: center;
 }
 
-.header__nav-wrapper {
+.nav__wrapper {
   width: 15rem;
   height: 5rem;
   flex: 1;
 }
-.header__nav-wrapper__logo {
+.nav__logo {
   width: 14rem;
   height: 5rem;
   transition: all cubic-bezier(0, 0.13, 1, 1.6) 0.55s;
   object-fit: contain;
 }
-.header__nav-links {
+.nav__links {
   display: flex;
 }
 
-.header__nav-links__li {
+.nav__item {
   margin-right: 4rem;
   list-style-type: none;
   font-size: 1.5rem;
 }
 
-.header__nav-links__li-href--btn {
+.nav__link--btn {
   background-color: var(--color-primary);
   padding: 1rem;
   color: white;
   cursor: pointer;
 }
-.header__title {
+.headerTitle {
   flex: 1;
 
   display: grid;
@@ -84,12 +84,12 @@ body {
   align-items: center;
   align-content: center;
 }
-.header__title-img {
+.headerTitle__img {
   width: 100%;
   grid-column: 2 / 3;
   grid-row: 1 / 4;
 }
-.header__title-btn {
+.headerTitle__btn {
   border: none;
   width: 50%;
   color: var(--color-primary-darker);
@@ -104,10 +104,10 @@ h1 {
 h3 {
   font-size: 3rem;
 }
-.header__title-primary {
+.headerTitle__primary {
   padding: 0.2rem;
 }
-.header__nav-links__li-href {
+.nav__link {
   cursor: pointer;
   transition: all cubic-bezier(0, 0.13, 1, 1.6) 0.55s;
 }
