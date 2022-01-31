@@ -1,5 +1,6 @@
 const nav = document.querySelector(".nav");
-// const navLinks = document.querySelectorAll(".header__nav-links__li-href");
+const tiitle__btn = document.querySelector(".headerTitle__btn");
+const section1 = document.querySelector("#section--1");
 
 //resuable function
 const handleHover = function (e) {
@@ -17,6 +18,18 @@ const handleHover = function (e) {
 };
 
 //add mouseOver and mouseout listeners
-nav.addEventListener("mouseover", handleHover.bind(0.7));
+nav.addEventListener("mouseover", handleHover.bind(0.6));
 
 nav.addEventListener("mouseout", handleHover.bind(1));
+
+tiitle__btn.addEventListener("click", function () {
+  section1.scrollIntoView({ behavior: "smooth" });
+});
+
+document.querySelector(".nav__links").addEventListener("click", function (e) {
+  e.preventDefault();
+  if (e.target.classList.contains("nav__link")) {
+    const id = e.target.getAttribute("href");
+    document.querySelector(id).scrollIntoView({ behavior: "smooth" });
+  }
+});

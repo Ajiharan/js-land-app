@@ -20,6 +20,7 @@
 html {
   font-size: 62.5%;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -92,12 +93,14 @@ body {
   grid-row: 1 / 4;
 }
 .headerTitle__btn {
+  margin-top: 2rem;
   border: none;
   width: 50%;
   color: var(--color-primary-darker);
   background-color: transparent;
   text-align: start;
   font-size: 1.8rem;
+  cursor: pointer;
 }
 h1 {
   font-size: 7rem;
@@ -110,6 +113,8 @@ h3 {
   padding: 0.2rem;
 }
 .nav__link {
+  color: inherit;
+  text-decoration: none;
   cursor: pointer;
   transition: all cubic-bezier(0, 0.13, 1, 1.6) 0.55s;
 }
