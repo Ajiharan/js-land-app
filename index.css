@@ -325,11 +325,11 @@ h3 {
 }
 .testimonial__location {
   grid-column: 2;
-  color: gray;
+  color: rgb(66, 66, 66);
 }
 .testimonial__name {
   font-size: 1.4rem;
-  color: gray;
+  color: rgb(44, 43, 43);
   align-self: center;
 }
 .testimonial__photo {
@@ -337,4 +337,23 @@ h3 {
   height: fit-content;
   border-radius: 50%;
   grid-row: 1 / span 2;
+}
+
+.slider__btn {
+  position: absolute;
+  height: 4rem;
+  width: 4rem;
+  border: none;
+  background-color: white;
+  border-radius: 50%;
+  font-size: 2.5rem;
+  top: 20%;
+}
+
+.slider__btn--right {
+  right: 0;
+}
+
+.slider__btn--left {
+  left: 0;
 }
