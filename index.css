@@ -140,6 +140,7 @@ h3 {
 .section__title {
   margin: 0 auto 8rem auto;
   max-width: 80vw;
+  width: 60%;
 }
 .section__description {
   color: var(--color-primary);
@@ -150,7 +151,7 @@ h3 {
   font-size: 4rem;
   line-height: 1.2;
   font-weight: 500;
-  max-width: 60%;
+  max-width: 80%;
 }
 
 .features {
@@ -278,4 +279,34 @@ h3 {
   grid-column: 2;
   line-height: 1.5;
   color: gray;
+}
+.section__title--testimonials {
+  margin-bottom: 6rem;
+}
+.slider {
+  max-width: 80vw;
+  height: 60vh;
+  margin: 0 auto;
+  position: relative;
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.testimonial {
+  width: 70%;
+  position: relative;
+}
+.testimonial::before {
+  content: "\201C";
+  position: absolute;
+  top: -5rem;
+  left: -4rem;
+  color: var(--color-primary);
+  font-size: 10rem;
 }
