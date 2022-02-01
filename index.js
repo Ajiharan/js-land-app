@@ -3,6 +3,9 @@ const tiitle__btn = document.querySelector(".headerTitle__btn");
 const section1 = document.querySelector("#section--1");
 const header = document.querySelector(".header");
 const sections = document.querySelectorAll(".section");
+const btnRight = document.querySelector(".slider__btn--right");
+const btnLeft = document.querySelector(".slider__btn--left");
+
 //resuable function
 const handleHover = function (e) {
   if (e.target.classList.contains("nav__link")) {
@@ -108,3 +111,34 @@ const imageObs = new IntersectionObserver(revelLazy, {
 blurImages.forEach((image) => {
   imageObs.observe(image);
 });
+
+let index = 0;
+const maxCount = 3;
+
+const slideImage = function (slideIndex) {
+  document.querySelectorAll(".slide").forEach((slide, i) => {
+    slide.style.transform = `translateX(${(i - slideIndex) * 100}%)`;
+  });
+};
+
+const slideBox = function () {
+  if (this.toString() === "inc") {
+    if (index === maxCount - 1) {
+      index = 0;
+    } else {
+      index++;
+    }
+  } else if (this.toString() === "dec") {
+    if (index === 0) {
+      index = maxCount - 1;
+    } else {
+      index--;
+    }
+  }
+  slideImage(index);
+};
+
+slideImage(0);
+btnLeft.addEventListener("click", slideBox.bind("dec"));
+
+btnRight.addEventListener("click", slideBox.bind("inc"));

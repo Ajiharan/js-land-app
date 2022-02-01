@@ -314,6 +314,7 @@ h3 {
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .testimonial {
@@ -366,6 +367,7 @@ h3 {
   border-radius: 50%;
   font-size: 2.5rem;
   top: 20%;
+  cursor: pointer;
 }
 
 .slider__btn--right {
