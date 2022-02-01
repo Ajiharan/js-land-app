@@ -48,6 +48,15 @@ body {
   display: flex;
   color: black;
   align-items: center;
+  width: 100vw;
+  z-index: 2;
+  transition: all 0.3s ease-in;
+}
+.nav--sticky {
+  position: fixed;
+  top: 0;
+  background-color: white;
+  transition: cubic-bezier(0.84, -0.01, 1, 1) all 0.35s;
 }
 
 .nav__wrapper {

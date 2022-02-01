@@ -1,7 +1,7 @@
 const nav = document.querySelector(".nav");
 const tiitle__btn = document.querySelector(".headerTitle__btn");
 const section1 = document.querySelector("#section--1");
-
+const header = document.querySelector(".header");
 //resuable function
 const handleHover = function (e) {
   if (e.target.classList.contains("nav__link")) {
@@ -33,3 +33,37 @@ document.querySelector(".nav__links").addEventListener("click", function (e) {
     document.querySelector(id).scrollIntoView({ behavior: "smooth" });
   }
 });
+
+//fixed nav bar when scroll in to section issue(low performance )
+
+// window.addEventListener("scroll", function () {
+//   const coords = section1.getBoundingClientRect();
+
+//   if (coords.top <= 0) {
+//     console.log(coords.top);
+//     nav.classList.add("nav--sticky");
+//     return;
+//   }
+//   if (coords.top > 0) {
+//     nav.classList.remove("nav--sticky");
+//     return;
+//   }
+// });
+
+const stickyNav = function (entries) {
+  const [entry] = entries;
+  if (!entry.isIntersecting) {
+    nav.classList.add("nav--sticky");
+    return;
+  }
+  nav.classList.remove("nav--sticky");
+};
+
+const navCoords = nav.getBoundingClientRect();
+//create observer for better performance
+const navObserver = new IntersectionObserver(stickyNav, {
+  root: null,
+  threshold: 0,
+  rootMargin: `-${navCoords.height}px`,
+});
+navObserver.observe(header);
