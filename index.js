@@ -5,6 +5,8 @@ const header = document.querySelector(".header");
 const sections = document.querySelectorAll(".section");
 const btnRight = document.querySelector(".slider__btn--right");
 const btnLeft = document.querySelector(".slider__btn--left");
+const slides = document.querySelectorAll(".slide");
+const dotContainer = document.querySelector(".dots");
 
 //resuable function
 const handleHover = function (e) {
@@ -115,10 +117,32 @@ blurImages.forEach((image) => {
 let index = 0;
 const maxCount = 3;
 
+const createDots = function () {
+  slides.forEach((_, i) => {
+    console.log("dot");
+    dotContainer.insertAdjacentHTML(
+      "beforeend",
+      `<button class='dots__dot' data-slide=${i}></button>`
+    );
+  });
+};
+
+const updateDot = function (currentIndex) {
+  const dots = document.querySelectorAll(".dots__dot");
+  dots.forEach((dot) => {
+    if (String(currentIndex) === dot.dataset.slide) {
+      dot.classList.add("dots__dot--active");
+    } else {
+      dot.classList.remove("dots__dot--active");
+    }
+  });
+};
+
 const slideImage = function (slideIndex) {
   document.querySelectorAll(".slide").forEach((slide, i) => {
     slide.style.transform = `translateX(${(i - slideIndex) * 100}%)`;
   });
+  updateDot(slideIndex);
 };
 
 const slideBox = function () {
@@ -138,7 +162,13 @@ const slideBox = function () {
   slideImage(index);
 };
 
-slideImage(0);
 btnLeft.addEventListener("click", slideBox.bind("dec"));
 
 btnRight.addEventListener("click", slideBox.bind("inc"));
+
+function init() {
+  createDots();
+  slideImage(0);
+}
+
+init();
