@@ -2,6 +2,7 @@ const nav = document.querySelector(".nav");
 const tiitle__btn = document.querySelector(".headerTitle__btn");
 const section1 = document.querySelector("#section--1");
 const header = document.querySelector(".header");
+const sections = document.querySelectorAll(".section");
 //resuable function
 const handleHover = function (e) {
   if (e.target.classList.contains("nav__link")) {
@@ -60,10 +61,31 @@ const stickyNav = function (entries) {
 };
 
 const navCoords = nav.getBoundingClientRect();
+
 //create observer for better performance
+
+//nav observer
 const navObserver = new IntersectionObserver(stickyNav, {
   root: null,
   threshold: 0,
   rootMargin: `-${navCoords.height}px`,
 });
 navObserver.observe(header);
+
+const revealSection = function (entries, observer) {
+  const [entry] = entries;
+  if (!entry.isIntersecting) return;
+  entry.target.classList.remove("section--hidden");
+  observer.unobserve(entry.target);
+};
+
+//section observer
+const sectionObs = new IntersectionObserver(revealSection, {
+  root: null,
+  threshold: 0.1,
+});
+
+sections.forEach((section) => {
+  section.classList.add("section--hidden");
+  sectionObs.observe(section);
+});
