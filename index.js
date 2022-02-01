@@ -124,10 +124,11 @@ const removeActiveButtons = function () {
 };
 
 buttonTabs.addEventListener("click", function (e) {
-  if (e.target.classList.contains("operations__tab")) {
-    const tabNumber = e.target.dataset.tab;
+  const button = e.target.closest("button");
+  if (button.classList.contains("operations__tab")) {
+    const tabNumber = button.dataset.tab;
     removeActiveButtons();
-    e.target.classList.add("operations__tab--active");
+    button.classList.add("operations__tab--active");
     operations__contents.forEach((content) => {
       if (content.classList.contains(`operations__content--${tabNumber}`)) {
         content.classList.add("operations__content--active");
@@ -143,7 +144,6 @@ const maxCount = 3;
 
 const createDots = function () {
   slides.forEach((_, i) => {
-    console.log("dot");
     dotContainer.insertAdjacentHTML(
       "beforeend",
       `<button class='dots__dot' data-slide=${i}></button>`
