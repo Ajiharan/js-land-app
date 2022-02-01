@@ -11,6 +11,11 @@ const dotContainer = document.querySelector(".dots");
 const buttonTabs = document.querySelector(".operations__tab-container");
 const operations__contents = document.querySelectorAll(".operations__content");
 
+const scroller = document.querySelector(".scroller__box");
+
+let index = 0;
+const maxCount = 3;
+
 //resuable function
 const handleHover = function (e) {
   if (e.target.classList.contains("nav__link")) {
@@ -63,9 +68,11 @@ const stickyNav = function (entries) {
   const [entry] = entries;
   if (!entry.isIntersecting) {
     nav.classList.add("nav--sticky");
+    scroller.classList.remove("scroller__box--hidden");
     return;
   }
   nav.classList.remove("nav--sticky");
+  scroller.classList.add("scroller__box--hidden");
 };
 
 const navCoords = nav.getBoundingClientRect();
@@ -139,9 +146,6 @@ buttonTabs.addEventListener("click", function (e) {
   }
 });
 
-let index = 0;
-const maxCount = 3;
-
 const createDots = function () {
   slides.forEach((_, i) => {
     dotContainer.insertAdjacentHTML(
@@ -197,6 +201,10 @@ dotContainer.addEventListener("click", function (e) {
 btnLeft.addEventListener("click", slideBox.bind("dec"));
 
 btnRight.addEventListener("click", slideBox.bind("inc"));
+
+scroller.addEventListener("click", function () {
+  window.scrollTo({ behavior: "smooth", top: 0 });
+});
 
 function init() {
   createDots();

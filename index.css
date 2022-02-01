@@ -405,3 +405,25 @@ h3 {
   background-color: rgb(255, 255, 255);
   opacity: 1;
 }
+
+.scroller {
+  position: fixed;
+  bottom: 10rem;
+  right: 6rem;
+}
+.scroller__box {
+  background-color: var(--color-primary-darker);
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.scroller__box--hidden {
+  display: none;
+}
