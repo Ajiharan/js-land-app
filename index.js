@@ -186,6 +186,14 @@ const slideBox = function () {
   slideImage(index);
 };
 
+dotContainer.addEventListener("click", function (e) {
+  if (e.target.classList.contains("dots__dot")) {
+    const dotId = e.target.dataset.slide;
+    updateDot(dotId);
+    slideImage(dotId);
+  }
+});
+
 btnLeft.addEventListener("click", slideBox.bind("dec"));
 
 btnRight.addEventListener("click", slideBox.bind("inc"));
