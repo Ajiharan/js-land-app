@@ -8,6 +8,9 @@ const btnLeft = document.querySelector(".slider__btn--left");
 const slides = document.querySelectorAll(".slide");
 const dotContainer = document.querySelector(".dots");
 
+const buttonTabs = document.querySelector(".operations__tab-container");
+const operations__contents = document.querySelectorAll(".operations__content");
+
 //resuable function
 const handleHover = function (e) {
   if (e.target.classList.contains("nav__link")) {
@@ -112,6 +115,27 @@ const imageObs = new IntersectionObserver(revelLazy, {
 
 blurImages.forEach((image) => {
   imageObs.observe(image);
+});
+
+const removeActiveButtons = function () {
+  document.querySelectorAll(".operations__tab").forEach((btn) => {
+    btn.classList.remove("operations__tab--active");
+  });
+};
+
+buttonTabs.addEventListener("click", function (e) {
+  if (e.target.classList.contains("operations__tab")) {
+    const tabNumber = e.target.dataset.tab;
+    removeActiveButtons();
+    e.target.classList.add("operations__tab--active");
+    operations__contents.forEach((content) => {
+      if (content.classList.contains(`operations__content--${tabNumber}`)) {
+        content.classList.add("operations__content--active");
+      } else {
+        content.classList.remove("operations__content--active");
+      }
+    });
+  }
 });
 
 let index = 0;
