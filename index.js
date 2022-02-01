@@ -89,3 +89,22 @@ sections.forEach((section) => {
   section.classList.add("section--hidden");
   sectionObs.observe(section);
 });
+
+const blurImages = document.querySelectorAll("img[data-src]");
+
+const revelLazy = function (entries, observer) {
+  const [entry] = entries;
+  if (!entry.isIntersecting) return;
+  entry.target.src = entry.target.dataset.src;
+  entry.target.classList.remove("lazy-img");
+  observer.unobserve(entry.target);
+};
+
+const imageObs = new IntersectionObserver(revelLazy, {
+  root: null,
+  threshold: 0,
+});
+
+blurImages.forEach((image) => {
+  imageObs.observe(image);
+});
