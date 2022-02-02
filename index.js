@@ -211,4 +211,5 @@ function init() {
   slideImage(0);
 }
 
+//initialize default
 init();
